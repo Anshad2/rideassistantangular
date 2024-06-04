@@ -11,7 +11,9 @@ export class CustomerlistComponent {
   customers:any
 
   constructor(private service:RideService){
+  this.service.isAuthenticated()
   this.ngOninit()
+  
    
 
   }

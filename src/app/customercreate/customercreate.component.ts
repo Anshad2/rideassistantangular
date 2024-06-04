@@ -23,6 +23,7 @@ export class CustomercreateComponent {
       this.isEdit=true
       // console.log(this.isEdit);
       this.initializeForm()
+      this.service.isAuthenticated()
       
     }
     
@@ -52,7 +53,7 @@ export class CustomercreateComponent {
 
       //edit logic
       this.service.updateCustomer(this.custId,formData).subscribe(data=>{
-        this.route.navigateByUrl("")
+        this.route.navigateByUrl("customers")
       })
 
     }
@@ -60,10 +61,10 @@ export class CustomercreateComponent {
 
       // console.log(formData);
 
-      
+      // logic for creating
   
-      this.service.createCustomer(formData).subscribe(data=>{
-        this.route.navigateByUrl("")
+      this.service.createCustomer(formData).subscribe((data:any)=>{
+      this.route.navigateByUrl(`worksummary/${data.id}`)
     })
 
   
